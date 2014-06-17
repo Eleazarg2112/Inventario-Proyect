@@ -1,0 +1,4 @@
+1)team 
+2)initialized repository
+3)commit
+4)push

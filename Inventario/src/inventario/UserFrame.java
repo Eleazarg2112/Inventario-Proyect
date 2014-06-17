@@ -5,19 +5,27 @@
  */
 
 package inventario;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.showMessageDialog;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
 /**
  *
  * @author Gerardo
  */
 public class UserFrame extends javax.swing.JFrame {
-User usuario = new User();
+static User usuario = new User();
+JFrame j = null;
     /**
      * Creates new form UserFrame
      */
     public UserFrame() {
         initComponents();
         jLabel6.setVisible(false);
+        j = new JFrame();
     }
 
     /**
@@ -49,6 +57,8 @@ User usuario = new User();
         setTitle("Usuario");
         setResizable(false);
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
         jButton1.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         jButton1.setText("OK");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -59,6 +69,8 @@ User usuario = new User();
         jPanel2.add(jButton1);
 
         getContentPane().add(jPanel2, java.awt.BorderLayout.PAGE_END);
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel1.setText("Ingrese los datos a continuacion");
@@ -139,23 +151,24 @@ User usuario = new User();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-   usuario.setUsername(jTextField1.getText());
-   char[] pass = jPasswordField1.getPassword();
-   String password = new String(pass);
-   char[] pass2 = jPasswordField2.getPassword();
-   String secondpassword = new String(pass2);
-    if(password.equals(secondpassword)){
-    usuario.setPassword(password);
-    }else{
-    jLabel6.setVisible(true);
-    jPasswordField1.setText("");
-    jPasswordField2.setText("");
-    }
-    usuario.setCode(jTextField2.getText());
+    usuario = new User();
+    usuario.setUsername(jTextField1.getText());
+     char[] pass = jPasswordField1.getPassword();
+     String password = new String(pass);
+     char[] pa = jPasswordField2.getPassword();
+     String secondpassword = new String(pa);
+     if(password.equals(secondpassword)){
+     usuario.setPassword(password);
+     }else{
+     jLabel6.setVisible(true);
+     }
     }//GEN-LAST:event_jButton1ActionPerformed
-
+   static public User send(){
+   return usuario;
+   }
     /**
-     * @param args the command line arguments
+     *
+     * @return
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
